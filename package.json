@@ -1,26 +1,26 @@
 {
-  "name": "vue-responsive-video-background-player",
+  "name": "@hintay/vue-video-background",
   "type": "module",
-  "version": "2.3.1",
+  "version": "3.0",
   "private": false,
   "packageManager": "pnpm@9.12.3+sha256.24235772cc4ac82a62627cd47f834c72667a2ce87799a846ec4e8e555e2d4b8b",
   "description": "Play your own videos in background responsively",
-  "author": {
-    "name": "Philipp Mochine",
-    "email": "support@avidofood.com",
-    "url": "https://avidofood.com"
-  },
   "contributors": [
     {
       "name": "Hintay",
       "email": "hintay@me.com",
       "url": "https://kugeek.com"
+    },
+    {
+      "name": "Philipp Mochine",
+      "email": "support@avidofood.com",
+      "url": "https://avidofood.com"
     }
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/avidofood/vue-responsive-video-background-player.git"
+    "url": "git://github.com/Hintay/vue-video-background.git"
   },
   "keywords": [
     "vue 3",
@@ -55,7 +55,8 @@
     "preview": "vite preview --config vite.config.demo.ts --outDir .",
     "typecheck": "vue-tsc --noEmit -p tsconfig.lib.json",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "publish": "pnpm run build && pnpm publish"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.8.0",
