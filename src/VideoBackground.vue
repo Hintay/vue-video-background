@@ -9,7 +9,7 @@ import throttle from './lib/throttle.ts'
 
 const props = withDefaults(defineProps<Props>(), DefaultProps)
 
-const emits = defineEmits(['playing', 'error', 'loading', 'ended', 'ready'])
+const emits = defineEmits(['playing', 'paused', 'error', 'loading', 'ended', 'ready'])
 
 const player = useTemplateRef('player')
 
@@ -90,6 +90,7 @@ onBeforeUnmount(() => {
       :object-fit
       @ready="playVideo"
       @playing="emits('playing')"
+      @paused="emits('paused')"
       @error="emits('error')"
       @loading="emits('loading')"
       @ended="emits('ended')"

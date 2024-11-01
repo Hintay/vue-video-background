@@ -4,7 +4,7 @@ import { DefaultProps, type Props } from '../core/props'
 
 const props = withDefaults(defineProps<Props>(), DefaultProps)
 
-const emits = defineEmits(['playing', 'error', 'loading', 'ended', 'ready'])
+const emits = defineEmits(['playing', 'paused', 'error', 'loading', 'ended', 'ready'])
 
 const player = useTemplateRef('player')
 const showVideo = ref(false)
@@ -27,6 +27,7 @@ function play() {
 function pause() {
   if (player.value) {
     player.value.pause()
+    emits('paused')
   }
 }
 
