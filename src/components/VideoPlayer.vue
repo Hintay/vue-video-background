@@ -31,10 +31,10 @@ function pause() {
 }
 
 function load() {
-  hide()
-
   if (!player.value)
     return
+
+  hide()
 
   // ugly, but we want to give hide 1 sec pause until we load the next video
   setTimeout(() => {
@@ -44,7 +44,7 @@ function load() {
 }
 
 function getMediaType(src: string) {
-  return `video/${src.split('.').pop()?.split(/[?#]/)[0]}`
+  return props.mime ?? `video/${src.split('.').pop()?.split(/[?#]/)[0]}`
 }
 
 function videoReady() {
@@ -93,9 +93,9 @@ watch(() => props.src, load)
         ref="player"
         autoplay
         playsinline
-        :muted="muted"
-        :loop="loop"
-        :preload="preload"
+        :muted
+        :loop
+        :preload
         :style="{
           objectFit,
         }"

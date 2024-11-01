@@ -4,7 +4,8 @@ export interface Sources {
   src: string
   res: number
   autoplay: boolean
-  poster: string
+  poster?: string
+  mime?: string
 }
 
 export interface Props extends PlayerProps {

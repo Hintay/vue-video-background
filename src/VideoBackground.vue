@@ -80,18 +80,19 @@ onBeforeUnmount(() => {
     <VideoPlayer
       ref="player"
       :src="current.src"
-      :muted="muted"
-      :loop="loop"
-      :preload="preload"
-      :plays-when="playsWhen"
-      :playback-rate="playbackRate"
-      :transition="transition"
-      :object-fit="objectFit"
+      :mime
+      :muted
+      :loop
+      :preload
+      :plays-when
+      :playback-rate
+      :transition
+      :object-fit
       @ready="playVideo"
-      @playing="$emit('playing')"
-      @error="$emit('error')"
-      @loading="$emit('loading')"
-      @ended="$emit('ended')"
+      @playing="emits('playing')"
+      @error="emits('error')"
+      @loading="emits('loading')"
+      @ended="emits('ended')"
     />
 
     <VideoOverlay

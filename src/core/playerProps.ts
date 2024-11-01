@@ -6,6 +6,7 @@ type playsWhen = 'abort' | 'canplay' | 'canplaythrough' | 'durationchange' | 'em
 
 export interface PlayerProps {
   src: string
+  mime?: string
   muted?: boolean
   loop?: boolean
   preload?: string
