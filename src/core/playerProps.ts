@@ -9,7 +9,7 @@ export interface PlayerProps {
   mime?: string
   muted?: boolean
   loop?: boolean
-  preload?: string
+  preload?: typeof HTMLVideoElement.prototype.preload
   objectFit?: Property.ObjectFit
   playsWhen?: playsWhen
   playbackRate?: number
@@ -19,7 +19,7 @@ export interface PlayerProps {
 export const PlayerDefaultProps = {
   muted: true,
   loop: true,
-  preload: 'auto',
+  preload: 'auto' as typeof HTMLVideoElement.prototype.preload,
   objectFit: 'cover' as Property.ObjectFit,
   playsWhen: 'canplay' as playsWhen, // Google HTML Video Events
   playbackRate: 1.0,
