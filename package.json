@@ -1,26 +1,23 @@
 {
   "name": "vue-responsive-video-background-player",
+  "type": "module",
   "version": "2.3.1",
-  "description": "Play your own videos in background responsively",
-  "main": "./dist/vue-responsive-video-background-player.umd.js",
-  "unpkg": "./dist/vue-responsive-video-background-player.umd.js",
-  "module": "./dist/vue-responsive-video-background-player.mjs",
-  "exports": {
-    ".": {
-      "import": "./dist/vue-responsive-video-background-player.mjs",
-      "require": "./dist/vue-responsive-video-background-player.umd.js"
-    }
-  },
   "private": false,
-  "scripts": {
-    "build:dist": "LIB_NAME=dist vite build",
-    "build:demo": "LIB_NAME=demo vite build",
-    "build": "npm run build:dist && npm run build:demo",
-    "publish": "npm run build && npm publish"
+  "packageManager": "pnpm@9.12.3+sha256.24235772cc4ac82a62627cd47f834c72667a2ce87799a846ec4e8e555e2d4b8b",
+  "description": "Play your own videos in background responsively",
+  "author": {
+    "name": "Philipp Mochine",
+    "email": "support@avidofood.com",
+    "url": "https://avidofood.com"
   },
-  "files": [
-    "dist/*"
+  "contributors": [
+    {
+      "name": "Hintay",
+      "email": "hintay@me.com",
+      "url": "https://kugeek.com"
+    }
   ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/avidofood/vue-responsive-video-background-player.git"
@@ -40,19 +37,38 @@
     "resolution switcher",
     "tesla"
   ],
-  "author": {
-    "name": "Philipp Mochine",
-    "email": "support@avidofood.com",
-    "url": "https://avidofood.com"
+  "exports": {
+    ".": {
+      "import": "./dist/vue-responsive-video-background-player.js",
+      "require": "./dist/vue-responsive-video-background-player.umd.cjs"
+    }
   },
-  "license": "MIT",
+  "main": "./dist/vue-responsive-video-background-player.umd.cjs",
+  "module": "./dist/vue-responsive-video-background-player.js",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build:dist": "vite build",
+    "build:demo": "vite build --config vite.config.demo.ts",
+    "prepreview": "pnpm run build:demo",
+    "preview": "vite preview --config vite.config.demo.ts --outDir .",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.lib.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.0.3",
-    "eslint": "^8.23.1",
-    "eslint-config-avidofood": "^3.1.0",
-    "vite": "^3.0.9",
-    "vite-plugin-css-injected-by-js": "^2.0.4",
-    "vue": "^3.2.39"
+    "@antfu/eslint-config": "^3.8.0",
+    "@types/node": "^22.8.6",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "csstype": "^3.1.3",
+    "eslint": "^9.13.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vite-plugin-css-injected-by-js": "^3.5.2",
+    "vite-plugin-dts": "^4.3.0",
+    "vue": "^3.5.12",
+    "vue-tsc": "^2.1.10"
   },
   "release": {
     "branch": "master"

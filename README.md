@@ -30,22 +30,22 @@
 ### 2a: Install as a component
 
 ```javascript
- import VideoBackground from 'vue-responsive-video-background-player'
+import VideoBackground from 'vue-responsive-video-background-player'
 
- Vue.component('video-background', VideoBackground);
+Vue.component('video-background', VideoBackground)
 ```
-### 2b: Install as a plugin 
+### 2b: Install as a plugin
 ```javascript
- import { Plugin } from 'vue-responsive-video-background-player'
+import { Plugin } from 'vue-responsive-video-background-player'
 
- Vue.use(Plugin);
+Vue.use(Plugin)
 ```
 
 ### (3: Only for Nuxt.js users)
 #### Nuxt.js v2.xx.x
  >Thanks to [@skoulix](https://github.com/avidofood/vue-responsive-video-background-player/issues/8#issuecomment-654821213) for his instructions:
 
-  Again this is only for Nuxt.js users. Gridsome users click [here](https://gridsome.org/docs/assets-scripts/#without-ssr-support). At your `nuxt.config.js` locate the part where you declare your plugins and import the file. Example: 
+  Again this is only for Nuxt.js users. Gridsome users click [here](https://gridsome.org/docs/assets-scripts/#without-ssr-support). At your `nuxt.config.js` locate the part where you declare your plugins and import the file. Example:
 
 ```
 plugins: [
@@ -74,14 +74,12 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 then you use the **video-background** tag
 
-
 ## Usage - (or to make it runnable 🏃‍♂️)
-
 
 ### Easiest version 🔍
 
 ```html
- <video-background 
+ <video-background
     src="<your-video-path>.mp4"
     style="max-height: 400px; height: 100vh;"
  >
@@ -92,15 +90,15 @@ then you use the **video-background** tag
 ### Advanced version 🌐
 
 ```html
- <video-background 
+ <video-background
     src="<your-default-video-path>.mp4"
     poster="/images/mainfoto.jpg"
     :sources="[
-        {src: '<your-tablet-video-path>.mp4', res: 900, autoplay: true}, 
+        {src: '<your-tablet-video-path>.mp4', res: 900, autoplay: true},
         {src: '<your-mobile-video-path>.mp4', res: 638, autoplay: true, poster: '<your-mobile-background-image-path>.png'}
     ]"
     style="max-height: 400px; height: 100vh;"
-    overlay="linear-gradient(45deg,#2a4ae430,#fb949e6b)" 
+    overlay="linear-gradient(45deg,#2a4ae430,#fb949e6b)"
 >
     <h1 style="color: white;">Hallo welcome!</h1>
 </video-background>
@@ -122,7 +120,6 @@ This is your path to your video. You can just use this value for showing your vi
 
  >**Warning** for [Vue CLI](https://cli.vuejs.org/guide/creating-a-project.html): You need to bind the source like this: ``:src="require(`@/assets/video/timelapse.mp4`)"``. [Read here why](https://github.com/avidofood/vue-responsive-video-background-player/issues/10#issuecomment-646959090)
 
-
 - `poster` (default: `''`)
 
 This is your first background image that is shown before the video is loaded.
@@ -137,7 +134,7 @@ To make it work, sources is an array that contains objects. For example:
 
 `[{src: '<your-mobile-video-path>.mp4', res: 638, autoplay: true, poster: '<your-mobile-background-image-path>.png'}]`
 
-To make it work you need at least `src, res, autoplay`. 
+To make it work you need at least `src, res, autoplay`.
 
 `poster` is optional.
 
@@ -171,14 +168,14 @@ So the video fits perfectly in the container
 This is important, if you know that you might have users with bad internet speed, you should definetly use `canplaythrough`. Learn more in [video events](https://www.w3schools.com/tags/ref_av_dom.asp).
 
 - `playbackRate` (default: `1.0`)
-  
+
 The playbackRate property sets the current playback speed of the video. [Example](https://www.w3schools.com/jsref/prop_video_playbackrate.asp) but negative values didn't work for me?
 
 - `transition` (default: `fade`)
-  
+
 You can add your own transition styles here. If you set it to empty string, it won't show any transitions.
 
-## Events 
+## Events
 
 - `ready`: Video is loaded
 - `playing`: Video is playing
@@ -196,7 +193,6 @@ If you happen to need more control over the player, you can use the internal met
 - `hide()`: Video is hidden, the poster is shown
 - `load()`: Video is loaded
 
- 
 ## Security
 
 If you discover any security related issues, please don't email me. I'm afraid 😱. avidofood@protonmail.com
@@ -208,7 +204,7 @@ This package is based on
 
  - https://tesla.com
 
-Oh come on. You read everything?? If you liked it so far, hit the ⭐️ button to give me a 🤩 face. 
+Oh come on. You read everything?? If you liked it so far, hit the ⭐️ button to give me a 🤩 face.
 
 ## Changelog
 
