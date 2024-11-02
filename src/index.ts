@@ -1,8 +1,8 @@
-import type { App } from 'vue'
+import type { App, Plugin } from 'vue'
 import component from './VideoBackground.vue'
 
-export const Plugin = {
-  install(app: App) {
+export const videoBackgroundPlugin: Plugin = {
+  install(app: App): void {
     app.component('VideoBackground', component)
   },
 }

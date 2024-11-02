@@ -34,9 +34,9 @@ Vue.component('video-background', VideoBackground)
 ```
 ### 2b: Install as a plugin
 ```javascript
-import { Plugin } from '@hintay/vue-video-background'
+import { videoBackgroundPlugin } from '@hintay/vue-video-background'
 
-Vue.use(Plugin)
+Vue.use(videoBackgroundPlugin)
 ```
 
 ### (3: Only for Nuxt.js users)
@@ -49,10 +49,10 @@ Create `plugins` directory and add `video-bg.client.ts` file with following:
 
 ```ts
 import { defineNuxtPlugin } from '#app'
-import { Plugin } from '@hintay/vue-video-background'
+import { videoBackgroundPlugin } from '@hintay/vue-video-background'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(Plugin)
+  nuxtApp.vueApp.use(videoBackgroundPlugin)
 })
 ```
 
