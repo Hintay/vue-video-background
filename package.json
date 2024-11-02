@@ -55,8 +55,7 @@
     "preview": "vite preview --config vite.config.demo.ts --outDir .",
     "typecheck": "vue-tsc --noEmit -p tsconfig.lib.json",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "publish": "pnpm run build:dist && npm publish"
+    "lint:fix": "eslint --fix ."
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.8.0",
