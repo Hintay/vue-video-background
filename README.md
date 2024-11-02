@@ -48,12 +48,12 @@ Create `plugins` directory and add `video-bg.client.ts` file with following:
 **Note:** You can use other filename but `.client` is obligatory for client side render, cause you don't have the window at SSR.
 
 ```ts
-import { defineNuxtPlugin } from "#app";
-import { Plugin } from "@hintay/vue-video-background";
+import { defineNuxtPlugin } from '#app'
+import { Plugin } from '@hintay/vue-video-background'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(Plugin);
-});
+  nuxtApp.vueApp.use(Plugin)
+})
 ```
 
 Then you can use the `video-background` tag.
@@ -116,7 +116,7 @@ This is the MIME type for your video file to check if it is playable in the brow
 
 For example: `https://example.com/video.mp4?autoplay=1` will extracted as`video/mp4`.
 
-#### `poster` 
+#### `poster`
 
 Type: `string` (default: `''`)
 
@@ -124,7 +124,7 @@ This is your first background image that is shown before the video is loaded.
 
  >**Warning** for [Vue CLI](https://cli.vuejs.org/guide/creating-a-project.html): You need to bind the source like this: ``:src="require(`@/assets/img/logo.png`)"``. [Read here why](https://github.com/avidofood/vue-responsive-video-background-player/issues/10#issuecomment-646959090)
 
-#### `sources` 
+#### `sources`
 
 Type: `Sources[]` (default: `[]`)
 
@@ -144,9 +144,9 @@ To make it work, sources is an array that contains objects. For example:
 
 ````ts
 [{
-	src: '<your-mobile-video-path>.mp4',
-	res: 638,
-	autoplay: true,
+  src: '<your-mobile-video-path>.mp4',
+  res: 638,
+  autoplay: true,
 }]
 ````
 
@@ -156,13 +156,13 @@ To make it work you need at least `src`, `res`, `autoplay`.
 
 `res` stand for resolution. This example means that between 0px and 638px of the window's width only the mobile video will be shown. After that your default `src`.
 
-#### `autoplay` 
+#### `autoplay`
 
 Type: `boolean` (default: `true`)
 
 The video is going to be played immediately when the video is ready. If you are setting it to false, you can start the video just by `videobackground.player.play()`. But remember to set `ref='videobackground'` to the `<VideoBackground>` tag, so that it can work.
 
-#### `overlay` 
+#### `overlay`
 
 Type: `string` (default: `''`)
 
@@ -174,19 +174,19 @@ Type: `boolean` (default: `true`)
 
 Warning. Videos are perhaps not played when unmuted.
 
-#### `loop` 
+#### `loop`
 
 Type: `boolean` (default: `true`)
 
 Loops through the video. You can catch the event `ended` to show only the poster.
 
-#### `preload` 
+#### `preload`
 
 Type: `'none' | 'metadata' | 'auto' | ''` (default: `auto`)
 
 Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#preload
 
-#### `objectFit` 
+#### `objectFit`
 
 Type: `ObjectFit` (default: `cover`)
 
@@ -194,13 +194,13 @@ So the video fits perfectly in the container
 
 Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
 
-#### `playsWhen` 
+#### `playsWhen`
 
 Type: `string` with video events name (default: `canplay`)
 
 This is important, if you know that you might have users with bad internet speed, you should definitely use `canplaythrough`. Learn more in [video events](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#events).
 
-#### `playbackRate` 
+#### `playbackRate`
 
 Type: `number` (default: `1.0`)
 

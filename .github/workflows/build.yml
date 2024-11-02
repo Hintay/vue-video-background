@@ -1,0 +1,64 @@
+name: Node.js Package
+
+on:
+  push:
+    branches:
+      - '*'
+    paths:
+      - '*.ts'
+      - '*.json'
+      - '*.vue'
+      - .github/workflows/build.yml
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '*.ts'
+      - '*.json'
+      - '*.vue'
+      - .github/workflows/build.yml
+  release:
+    types:
+      - published
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: current
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install dependencies
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          pnpm install
+
+      - name: Check code style
+        run: |
+          pnpm run lint
+
+      - name: Check types
+        run: |
+          pnpm run typecheck
+
+      - name: Build
+        run: |
+          pnpm build:dist
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Publish to npm
+        if: github.event_name == 'release'
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

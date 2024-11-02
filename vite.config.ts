@@ -32,6 +32,6 @@ export default defineConfig({
   plugins: [
     vue(),
     cssInjectedByJsPlugin(),
-    dts({ tsconfigPath: './tsconfig.app.json' }),
+    dts({ tsconfigPath: './tsconfig.lib.json' }),
   ],
 })
