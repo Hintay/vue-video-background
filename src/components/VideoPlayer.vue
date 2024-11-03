@@ -118,6 +118,7 @@ watch(() => props.src, load)
         :preload
         :style="{
           objectFit,
+          objectPosition,
         }"
         @error="emits('error')"
         @ended="emits('ended')"

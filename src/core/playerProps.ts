@@ -11,6 +11,7 @@ export interface PlayerProps {
   loop?: boolean
   preload?: typeof HTMLVideoElement.prototype.preload
   objectFit?: Property.ObjectFit
+  objectPosition?: Property.ObjectPosition
   playsWhen?: playsWhen
   playbackRate?: number
   transition?: string
@@ -21,6 +22,7 @@ export const PlayerDefaultProps = {
   loop: true,
   preload: 'auto' as typeof HTMLVideoElement.prototype.preload,
   objectFit: 'cover' as Property.ObjectFit,
+  objectPosition: 'center' as Property.ObjectPosition,
   playsWhen: 'canplay' as playsWhen, // Google HTML Video Events
   playbackRate: 1.0,
   transition: 'fade',
