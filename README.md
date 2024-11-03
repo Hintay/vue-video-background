@@ -1,16 +1,16 @@
 # Responsive Video Background Player for Vue3 ⚡️
 
-<a href="https://www.npmjs.com/package/vue-responsive-video-background-player">
-  <img src="https://img.shields.io/npm/dt/vue-responsive-video-background-player.svg" alt="Downloads">
+<a href="https://www.npmjs.com/package/@hintay/vue-video-background">
+  <img src="https://img.shields.io/npm/dt/@hintay/vue-video-background.svg" alt="Downloads">
 </a>
-<a href="https://www.npmjs.com/package/vue-responsive-video-background-player">
-  <img src="https://img.shields.io/npm/v/vue-responsive-video-background-player.svg" alt="Version">
+<a href="https://www.npmjs.com/package/@hintay/vue-video-background">
+  <img src="https://img.shields.io/npm/v/@hintay/vue-video-background" alt="Version">
 </a>
-<a href="https://www.npmjs.com/package/vue-responsive-video-background-player">
-  <img src="https://img.shields.io/npm/l/vue-responsive-video-background-player.svg" alt="License">
+<a href="https://www.npmjs.com/package/@hintay/vue-video-background">
+  <img src="https://img.shields.io/npm/l/@hintay/vue-video-background.svg" alt="License">
 </a>
 
-![Laravel Tongue](https://raw.githubusercontent.com/avidofood/vue-responsive-video-background-player/master/demo/public/images/roadster.png)
+![Laravel Tongue](https://raw.githubusercontent.com/Hintay/vue-video-background/master/demo/public/images/roadster.png)
 
 **If you are looking to play video files in the background, you have found the best Vue package for it 😜**
 
@@ -190,9 +190,17 @@ Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#prelo
 
 Type: `ObjectFit` (default: `cover`)
 
-So the video fits perfectly in the container
+Set the video fits perfectly in the container
 
 Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
+
+#### `objectPosition`
+
+Type: `ObjectPosition` (default: `center`)
+
+Set the video fits position in the container
+
+Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/object-position
 
 #### `playsWhen`
 
