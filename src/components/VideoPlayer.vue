@@ -6,7 +6,7 @@ const props = withDefaults(defineProps<Props>(), DefaultProps)
 
 const emits = defineEmits(['playing', 'paused', 'error', 'loading', 'ended', 'ready'])
 
-const player = useTemplateRef('player')
+const playerRef = useTemplateRef('player')
 const showVideo = ref(false)
 
 function show() {
@@ -19,27 +19,27 @@ function hide() {
 
 function play() {
   setPlaybackRate()
-  player.value?.play()
+  playerRef.value?.play()
   show()
   emits('playing')
 }
 
 function pause() {
-  if (player.value) {
-    player.value.pause()
+  if (playerRef.value) {
+    playerRef.value.pause()
     emits('paused')
   }
 }
 
 function load() {
-  if (!player.value)
+  if (!playerRef.value)
     return
 
   hide()
 
   // ugly, but we want to give hide 1 sec pause until we load the next video
   setTimeout(() => {
-    player.value?.load()
+    playerRef.value?.load()
     emits('loading')
   }, 1000)
 }
@@ -57,11 +57,11 @@ function videoReady() {
 }
 
 function setPlaybackRate() {
-  if (!player.value)
+  if (!playerRef.value)
     return
 
-  player.value.playbackRate = props.playbackRate
-  player.value.defaultPlaybackRate = props.playbackRate
+  playerRef.value.playbackRate = props.playbackRate
+  playerRef.value.defaultPlaybackRate = props.playbackRate
 }
 
 defineExpose({
@@ -73,11 +73,11 @@ defineExpose({
 })
 
 onMounted(() => {
-  if (!player.value)
+  if (!playerRef.value)
     return
 
-  if (player.value.canPlayType(getMediaType(props.src)) !== '') {
-    player.value[`on${props.playsWhen}`] = videoReady
+  if (playerRef.value.canPlayType(getMediaType(props.src)) !== '') {
+    playerRef.value[`on${props.playsWhen}`] = videoReady
   }
 })
 

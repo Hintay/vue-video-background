@@ -11,16 +11,16 @@ const props = withDefaults(defineProps<Props>(), DefaultProps)
 
 const emits = defineEmits(['playing', 'paused', 'error', 'loading', 'ended', 'ready'])
 
-const player = useTemplateRef('player')
+const playerRef = useTemplateRef('player')
 
-defineExpose({ player })
+defineExpose({ player: playerRef })
 
 function playVideo() {
   emits('ready')
   if (!props.autoplay)
     return
 
-  player.value?.play()
+  playerRef.value?.play()
 }
 
 const width = ref(0)
