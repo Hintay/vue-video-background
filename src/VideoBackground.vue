@@ -9,7 +9,7 @@ import throttle from './lib/throttle.ts'
 
 const props = withDefaults(defineProps<Props>(), DefaultProps)
 
-const emits = defineEmits(['playing', 'paused', 'error', 'loading', 'ended', 'ready'])
+const emits = defineEmits(['playing', 'paused', 'error', 'loading', 'ended', 'ready', 'rested'])
 
 const playerRef = useTemplateRef('player')
 
@@ -94,6 +94,7 @@ onBeforeUnmount(() => {
       @error="emits('error')"
       @loading="emits('loading')"
       @ended="emits('ended')"
+      @rested="emits('rested')"
     />
 
     <VideoOverlay

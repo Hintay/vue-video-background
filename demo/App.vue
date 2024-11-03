@@ -34,7 +34,7 @@ import VideoBackground from '../src'
     </h6>
     <a
       class="btn btn-danger"
-      href="https://github.com/avidofood/vue-responsive-video-background-player"
+      href="https://github.com/Hintay/vue-video-background"
       role="button"
     >Source on GitHub</a>
 
@@ -46,9 +46,9 @@ import VideoBackground from '../src'
       >Tweet</a>
       <a
         class="github-button"
-        href="https://github.com/avidofood/vue-responsive-video-background-player"
+        href="https://github.com/Hintay/vue-video-background"
         data-show-count="true"
-        aria-label="Star avidofood/vue-responsive-video-background-player on GitHub"
+        aria-label="Star Hintay/vue-video-background on GitHub"
       >Star</a>
     </div>
   </section>
@@ -60,13 +60,13 @@ import VideoBackground from '../src'
           class="text-white d-md-none"
           style="font-weight: 600;"
         >
-          Designed for Vue 2 & 3
+          Designed for Vue 3
         </h4>
         <h2
           class="text-white d-none d-md-block"
           style="font-weight: 600; "
         >
-          Designed for Vue 2 & 3
+          Designed for Vue 3
         </h2>
       </div>
       <div class="col-12 col-md-6">

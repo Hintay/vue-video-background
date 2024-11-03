@@ -4,10 +4,11 @@ import { DefaultProps, type Props } from '../core/props'
 
 const props = withDefaults(defineProps<Props>(), DefaultProps)
 
-const emits = defineEmits(['playing', 'paused', 'error', 'loading', 'ended', 'ready'])
+const emits = defineEmits(['playing', 'paused', 'error', 'loading', 'ended', 'ready', 'rested'])
 
 const playerRef = useTemplateRef('player')
 const showVideo = ref(false)
+const ready = ref(false)
 
 function show() {
   showVideo.value = true
@@ -18,17 +19,24 @@ function hide() {
 }
 
 function play() {
+  if (!playerRef.value)
+    return
+
+  if (!ready.value) {
+    watch(ready, play, { once: true })
+    return
+  }
+
   setPlaybackRate()
-  playerRef.value?.play()
+  playerRef.value.play()
   show()
-  emits('playing')
 }
 
 function pause() {
-  if (playerRef.value) {
-    playerRef.value.pause()
-    emits('paused')
-  }
+  if (!playerRef.value)
+    return
+
+  playerRef.value.pause()
 }
 
 function load() {
@@ -44,6 +52,15 @@ function load() {
   }, 1000)
 }
 
+function reset() {
+  if (!playerRef.value)
+    return
+
+  playerRef.value.pause()
+  playerRef.value.currentTime = 0
+  emits('rested')
+}
+
 function getMediaType(src: string) {
   return props.mime ?? `video/${src.split('.').pop()?.split(/[?#]/)[0]}`
 }
@@ -52,6 +69,7 @@ function videoReady() {
   // Unfortunately we have the iOS bug, that we need to set autoplay always to true.
   // That means we need to first pause the video,
   // and later check if we want to autoplay or not
+  ready.value = true
   pause()
   emits('ready')
 }
@@ -70,6 +88,7 @@ defineExpose({
   load,
   show,
   hide,
+  reset,
 })
 
 onMounted(() => {
@@ -102,6 +121,8 @@ watch(() => props.src, load)
         }"
         @error="emits('error')"
         @ended="emits('ended')"
+        @playing="emits('playing')"
+        @pause="emits('paused')"
       >
         <source
           :src="src"

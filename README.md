@@ -216,10 +216,11 @@ You can add your own transition styles here. If you set it to empty string, it w
 
 - `ready`: Video is loaded
 - `playing`: Video is playing
-- `paused`: Video is Paused
+- `paused`: Video is paused
 - `error`: Video error
 - `loading`: Video is loading
 - `ended`: Video finished, only when `loop` is set to false
+- `rested`: Video is rested
 
 ## Methods
 
@@ -230,6 +231,7 @@ If you happen to need more control over the player, you can use the internal met
 - `show()`: Shows the video
 - `hide()`: Hides the video and the poster will be shown
 - `load()`: Loads the video
+- `reset()`: Reset the video player, seek time to `0`
 
 ## Credits
 
