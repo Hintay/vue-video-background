@@ -5,16 +5,16 @@ on:
     branches:
       - '*'
     paths:
-      - '*.ts'
-      - '*.json'
-      - '*.vue'
+      - '**/*.ts'
+      - '**/*.json'
+      - '**/*.vue'
       - .github/workflows/build.yml
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - '*.ts'
-      - '*.json'
-      - '*.vue'
+      - '**/*.ts'
+      - '**/*.json'
+      - '**/*.vue'
       - .github/workflows/build.yml
   release:
     types:
