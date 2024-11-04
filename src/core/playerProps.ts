@@ -22,7 +22,6 @@ export const PlayerDefaultProps = {
   loop: true,
   preload: 'auto' as typeof HTMLVideoElement.prototype.preload,
   objectFit: 'cover' as Property.ObjectFit,
-  objectPosition: 'center' as Property.ObjectPosition,
   playsWhen: 'canplay' as playsWhen, // Google HTML Video Events
   playbackRate: 1.0,
   transition: 'fade',

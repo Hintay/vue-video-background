@@ -88,6 +88,7 @@ onBeforeUnmount(() => {
       :playback-rate
       :transition
       :object-fit
+      :object-position
       @ready="playVideo"
       @playing="emits('playing')"
       @paused="emits('paused')"
